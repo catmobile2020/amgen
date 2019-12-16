@@ -1,0 +1,156 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Amgen API",
+        "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/team/{name}": {
+            "get": {
+                "tags": [
+                    "team"
+                ],
+                "summary": "get team",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "token"
+                    },
+                    "400": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/sets/{set}": {
+            "get": {
+                "tags": [
+                    "sets"
+                ],
+                "summary": "get set",
+                "parameters": [
+                    {
+                        "name": "set",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "token"
+                    },
+                    "400": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/questions/{question}": {
+            "get": {
+                "tags": [
+                    "questions"
+                ],
+                "summary": "get question",
+                "parameters": [
+                    {
+                        "name": "question",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "token"
+                    },
+                    "400": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        },
+        "/answers": {
+            "post": {
+                "tags": [
+                    "answers"
+                ],
+                "summary": "Send Answer",
+                "parameters": [
+                    {
+                        "name": "answer_id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "question_id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "set_id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "team_id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "token"
+                    },
+                    "400": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "jwt": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {},
+    "securityDefinitions": {
+        "jwt": {
+            "type": "apiKey",
+            "description": "Value: Bearer \\<token\\><br><br>",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
